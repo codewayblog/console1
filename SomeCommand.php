@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use SendUserOrderStats;
 
 class SomeCommand extends Command
 {
@@ -37,6 +38,11 @@ class SomeCommand extends Command
      */
     public function handle()
     {
-        //
+        $email = $this->argument('user');
+        $user = User::where('email', $email)->first();
+        if ($user instanceof User) {
+            $action = new SendUserOrderStats($user);
+            $action->execute();
+        }
     }
 }
