@@ -11,14 +11,14 @@ class SomeCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'send:order_stats {user}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Отправляет сводные данные по последним сделкам пользователя';
 
     /**
      * Create a new command instance.
