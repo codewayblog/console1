@@ -43,6 +43,9 @@ class SomeCommand extends Command
         if ($user instanceof User) {
             $action = new SendUserOrderStats($user);
             $action->execute();
+            $this->info('Письмо со сводными данными отправлено');
+        } else {
+            $this->error("Пользователь с e-mail $email не найден!");
         }
     }
 }
